@@ -41,8 +41,8 @@ test { ignoreFailures = true }
 sonarqube {
     properties {
         property "sonar.sourceEncoding", "UTF-8"
-        property "sonar.organization", "crc83-github"
+        property "sonar.organization", "andrewgrebinchak-github"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.login", "e45cbf780e3859397c8b0e1c254b116d90de160f"
+        property "sonar.login", "46ec173963a068b1bca0ca0d95c6418e707b7f9c"
     }
 }

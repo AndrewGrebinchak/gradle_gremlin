@@ -1,13 +1,12 @@
 package com.sftsrv.demo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.structure.T;
 import org.apache.tinkerpop.gremlin.structure.Vertex;
 import org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerFactory;
 import org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerGraph;
-import org.apache.tinkerpop.gremlin.process.traversal.P;
 import org.junit.Test;
 
 public class Gremlin1Test {
@@ -37,7 +36,7 @@ public class Gremlin1Test {
         System.out.println( g.V(1).outE("software").inV().values("name").toList());
         System.out.println( g.V(1).outE("software").inV().values("lang").toList());
         
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 }
