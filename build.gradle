@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.sonarqube'
+
+group = 'com.sftsrv'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-webflux')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('io.projectreactor:reactor-test')
+	testCompile 'org.apache.tinkerpop:gremlin-test:3.3.3'
+    testCompile 'org.apache.tinkerpop:tinkergraph-gremlin:3.3.3'
+    compile 'org.apache.tinkerpop:gremlin-core:3.3.3'
+}
+
+test { ignoreFailures = true }
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.organization", "crc83-github"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.login", "e45cbf780e3859397c8b0e1c254b116d90de160f"
+    }
+}
